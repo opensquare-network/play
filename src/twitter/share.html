@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Share Twitter</title>
+    <style>
+        div{
+            width: 500px;
+            margin: auto;
+        }
+        textarea, a {
+            margin: auto;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        a {
+            width: 150px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+
+        function encodeQueryData(data) {
+            const ret = [];
+            for (let d in data)
+                ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+            return ret.join('&');
+        }
+
+        function share_to_twitter() {
+            const data = {
+                text: document.getElementById('title').value,
+                url: document.getElementById('url').value,
+                hashtags: "OpenSquare",
+                original_referer: document.getElementById('url').value,
+            };
+
+            const querystring = encodeQueryData(data);
+
+            const twitter_share_page = `https://twitter.com/intent/tweet?${querystring}`;
+            return window.open(twitter_share_page, "Share To Twitter", `height=600, width=800, top=${screen.height / 4}, left=${screen.width / 4}`);
+        }
+    </script>
+</head>
+<body>
+<div>
+
+    <label for="title">TITLE</label>
+    <textarea name="title" id="title" cols="30" rows="3">
+    Some subsquare post TITLE
+</textarea>
+    <br>
+    <label for="url">URL</label>
+    <textarea name="url" id="url" cols="50" rows="5">
+    https://karura.subsquare.io/treasury/tip/819281_0xd4863dcf085be3e78ec2c6477cdcd91dc477b0b2a5b5ed5fe0908f0e09210f00
+</textarea>
+    <br>
+    <a href="#" id="share" onclick="share_to_twitter()">Share to twitter</a>
+</div>
+
+
+</body>
+</html>
