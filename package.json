@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:opensquare-network/play.git",
   "author": "Yongfeng LI <wliyongfeng@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@alicloud/dysmsapi20170525": "2.0.17"
+  }
 }
