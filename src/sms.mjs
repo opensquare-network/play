@@ -43,4 +43,4 @@ export default class Client {
 }
 
 //demo 
-Client.main({ targetPhone: "phone number ", content: JSON.stringify({ code: "6636" }) });
+Client.main({ targetPhone: "13888888888", content: JSON.stringify({ code: "6636" }) });
